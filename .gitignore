@@ -5,3 +5,7 @@
 
 env/
 venv/
+
+db.sqlite3
+
+nohup.out
