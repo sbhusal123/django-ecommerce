@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'item',
 ]
 
 MIDDLEWARE = [
@@ -121,5 +123,7 @@ USE_TZ = True
 STATICFILES_DIRS = (
     os.path.join(Path(BASE_DIR).parent, "static"),
 )
-# STATIC_ROOT = os.path.join(Path(BASE_DIR).parent, "static")
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/dashboard'
+LOGOUT_REDIRECT_URL = '/'

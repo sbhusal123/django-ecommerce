@@ -1,0 +1,2 @@
+class ProductAlreadyInActiveDeal(Exception):
+    pass

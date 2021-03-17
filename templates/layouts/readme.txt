@@ -1,0 +1,1 @@
+Base layout for argon dashboard
