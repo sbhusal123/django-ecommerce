@@ -1,0 +1,75 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Tables {% endblock title %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+        <div class="header-body">
+            <div class="mr-0">
+                <a class="btn btn-success" href="{% url 'new-attribute' %}">Add Attribute</a>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid mt--7">
+
+      <!-- Dark table -->
+      <div class="row mt-5">
+        <div class="col">
+          <div class="card bg-default shadow">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="text-white mb-0">Product Attributes</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-dark table-flush">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Attribute Name</th>
+                    <th scope="col">Description</th>
+                      <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                {% for attribute in attributes%}
+                  <tr>
+                    <th scope="row">
+                      {{attribute.name}}
+                    </th>
+                    <td>
+                      {{attribute.description}}
+                    </td>
+                    <td>
+                      <div class="row">
+                        <div class="col-3">
+                          <form method="POST" action="{% url 'delete-attribute' pk=attribute.id %}">
+                            {% csrf_token %}<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                          </form>
+                        </div>
+                        <div class="col-3">
+                          <a  class="btn btn-success btn-sm" href="{% url 'update-attribute' pk=attribute.id%}"><i class="fa fa-edit"></i></a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                {%endfor%}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}

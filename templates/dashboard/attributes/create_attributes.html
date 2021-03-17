@@ -1,0 +1,74 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Profile {% endblock title %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+         style="min-height: 50px; background-image: url(/static/assets/img/theme/profile-cover.jpg); background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+    </div>
+
+    <div class="container-fluid mt--5">
+
+      <div class="row">
+        <div class="col-xl-12 order-xl-1">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">New Attribute</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form method="post">
+                  {%csrf_token%}
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-username">Attribute Name<span class="text-red">*</span></label>
+                        <input type="text" id="input-username" class="form-control form-control-alternative" name="name"
+                               {% if form.name.value %} value="{{form.name.value}}" {%endif%}
+                               placeholder="Color/Size..">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Description</label>
+                        <input type="text" name="description" class="form-control form-control-alternative" {% if form.description.value %} value="{{form.description.value}}" {%endif%} placeholder="Lorem Ipsum dolor...">
+                      </div>
+                    </div>
+                  </div>
+                    <div class="row">
+                       {% for key,value in form.errors.items %}
+                        {% for error in value %}
+                           <p class="text-red">{{ error }}</p>
+                        {% endfor %}
+                       {% endfor %}
+                    </div>
+                    <br>
+                    <div class="row">
+                        <input type="submit" class="btn btn-success" name="Create">
+                    </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}

@@ -34,22 +34,6 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-            <a href="/profile.html" class="dropdown-item">
-              <i class="ni ni-single-02"></i>
-              <span>My profile</span>
-            </a>
-            <a href="/profile.html" class="dropdown-item">
-              <i class="ni ni-settings-gear-65"></i>
-              <span>Settings</span>
-            </a>
-            <a href="/profile.html" class="dropdown-item">
-              <i class="ni ni-calendar-grid-58"></i>
-              <span>Activity</span>
-            </a>
-            <a href="/profile.html" class="dropdown-item">
-              <i class="ni ni-support-16"></i>
-              <span>Support</span>
-            </a>
             <div class="dropdown-divider"></div>
             <a href="/dashboard/logout" class="dropdown-item">
               <i class="ni ni-user-run"></i>
@@ -58,6 +42,7 @@
           </div>
         </li>
       </ul>
+
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
         <!-- Collapse header -->
@@ -93,25 +78,68 @@
           <a class=" nav-link {% if 'index' in segment %} active {% endif %}" href="{% url 'dashboard'%}"> <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
+
+          <!--     Collapsing nav menus     -->
           <li class="nav-item">
-            <a class="nav-link {% if 'icons' in segment %} active {% endif %}" href="{%url 'pages'%}/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
-            </a>
+              <a class="nav-link"  data-toggle="collapse" href="#productsAction" role="button" aria-expanded="false" aria-controls="productsAction">
+                <i class="ni ni-app text-red"></i> Products
+              </a>
+            <div class="collapse" id="productsAction">
+              <a class="nav-link" href="#">
+                <i class="ni ni-ungroup text-red"></i> Category
+              </a>
+              <a class="nav-link" href="{% url 'attributes-list'%}">
+                <i class="ni ni-atom text-red"></i> Attributes
+              </a>
+              <a class="nav-link" href="#">
+                <i class="ni ni-ui-04 text-red"></i> Inventory
+              </a>
+            </div>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link {% if 'maps' in segment %} active {% endif %}" href="{%url 'pages'%}//maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
-            </a>
+              <a class="nav-link"  data-toggle="collapse" href="#dealsAction" role="button" aria-expanded="false" aria-controls="dealsAction">
+                <i class="ni ni-send text-green"></i>Offer
+              </a>
+
+              <div class="collapse" id="dealsAction">
+                <a class="nav-link" href="#">
+                  <i class="ni ni-ui-04 text-green"></i> Deals
+                </a>
+                <a class="nav-link" href="#">
+                  <i class="ni ni-shop text-green"></i> Deals Product
+                </a>
+              </div>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link {% if 'profile' in segment %} active {% endif %}" href="{%url 'pages'%}//profile.html">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
-            </a>
+              <a class="nav-link"  data-toggle="collapse" href="#OrderSales" role="button" aria-expanded="false" aria-controls="OrderSales">
+                <i class="ni ni-cart text-indigo"></i>Order/Sales
+              </a>
+
+              <div class="collapse" id="OrderSales">
+                <a class="nav-link" href="#">
+                  <i class="ni ni-tag text-indigo"></i> Pending Orders
+                </a>
+                <a class="nav-link" href="#">
+                  <i class="ni ni-bag-17 text-indigo"></i> Sales
+                </a>
+              </div>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link {% if 'tables' in segment %} active {% endif %}" href="{%url 'pages'%}//tables.html">
-              <i class="ni ni-bullet-list-67 text-info"></i> Tables
-            </a>
+              <a class="nav-link"  data-toggle="collapse" href="#DeliveryAct" role="button" aria-expanded="false" aria-controls="DeliveryAct">
+                <i class="ni ni-delivery-fast text-blue"></i>Delivery
+              </a>
+
+              <div class="collapse" id="DeliveryAct">
+                <a class="nav-link" href="#">
+                  <i class="ni ni-tag text-blue"></i> Pending
+                </a>
+                <a class="nav-link" href="#">
+                  <i class="ni ni-check-bold text-blue"></i> Delivered Items
+                </a>
+              </div>
           </li>
 
           <li class="nav-item">
@@ -119,6 +147,7 @@
               <i class="ni ni-user-run text-red"></i> Logout
             </a>
           </li>
+
         </ul>
       </div>
     </div>
